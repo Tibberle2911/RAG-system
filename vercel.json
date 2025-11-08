@@ -4,7 +4,10 @@
     {"src": "api/app.py", "use": "@vercel/python"}
   ],
   "routes": [
-    {"src": "/api/(.*)", "dest": "/api/app.py"},
-    {"src": "/(.*)", "dest": "/web/$1"}
+    { "src": "/api/(.*)", "dest": "/api/app.py" },
+    { "src": "/(.*)\\.(css|js|png|svg|ico|jpg|jpeg|webp|map)", "dest": "/web/$1.$2" },
+    { "src": "/$", "dest": "/web/index.html" },
+    { "src": "/(about|profile-data|github|testing)", "dest": "/web/$1.html" },
+    { "src": "/(.*)", "dest": "/web/$1" }
   ]
 }
