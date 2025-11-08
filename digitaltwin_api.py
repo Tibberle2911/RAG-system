@@ -48,28 +48,24 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve the UI from /web and redirect root to the UI
-app.mount("/web", StaticFiles(directory="web", html=True), name="web")
-
-@app.get("/")
-async def root_redirect():
-    return RedirectResponse(url="/web/index.html")
+# Serve the UI directly from root so "/" returns index.html (html=True)
+app.mount("/", StaticFiles(directory="web", html=True), name="root_static")
 
 @app.get("/about")
 async def about_redirect():
-    return RedirectResponse(url="/web/about.html")
+    return RedirectResponse(url="/about.html")
 
 @app.get("/github")
 async def github_redirect():
-    return RedirectResponse(url="/web/github.html")
+    return RedirectResponse(url="/github.html")
 
 @app.get("/testing")
 async def testing_redirect():
-    return RedirectResponse(url="/web/testing.html")
+    return RedirectResponse(url="/testing.html")
 
 @app.get("/profile-data")
 async def profile_data_redirect():
-    return RedirectResponse(url="/web/profile-data.html")
+    return RedirectResponse(url="/profile-data.html")
 
 @app.on_event("startup")
 async def startup_event():
