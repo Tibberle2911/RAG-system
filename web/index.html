@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Twin Recruiter Query Tester</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Digital Twin Recruiter Query Tester</h1>
+    <p>Interact with the AI profile using recruiter-style questions.</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="recruiter">Recruiter Q&A</button>
+    <button class="tab-btn" data-tab="search">Semantic Search</button>
+    <a class="tab-btn" href="/testing" title="Run sample queries and assessments">Testing</a>
+    <a class="tab-btn" href="/about" title="System architecture & implementation">About</a>
+      <a class="tab-btn" href="/profile-data" title="Structured professional content organization">Profile Data</a>
+      <a class="tab-btn" href="/github" title="Repository link">GitHub</a>
+  </nav>
+
+  <main>
+    <section id="tab-recruiter" class="tab-content active">
+      <div class="grid">
+        <section class="panel">
+          <h2>Ask a Question</h2>
+          <div class="input-row">
+            <input id="question" type="text" placeholder="e.g. Tell me about a time you improved a process" />
+            <button id="askBtn">Ask</button>
+          </div>
+          <div id="answer" class="answer"></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="tab-search" class="tab-content">
+      <section class="panel">
+        <h2>Semantic Search</h2>
+        <div class="input-row">
+          <input id="searchBox" type="text" placeholder="Search profile (e.g. frontend, leadership)" />
+          <button id="searchBtn">Search</button>
+        </div>
+        <ul id="searchResults" class="results"></ul>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <small>Status: <span id="status">Loading...</span></small>
+  </footer>
+  <script src="app.js"></script>
+</body>
+</html>

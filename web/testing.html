@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Digital Twin Testing Harness</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Testing Harness</h1>
+    <p>Run sample recruiter queries and inspect answer quality metrics.</p>
+    <nav class="tabs">
+      <a class="tab-btn" href="/web/index.html">← Back</a>
+    </nav>
+  </header>
+  <main class="testing-main">
+    <section class="panel">
+      <h2>Sample Queries</h2>
+      <div class="testing-controls">
+        <button id="loadBtn">Load Queries</button>
+        <button id="runAllBtn" disabled>Run All</button>
+        <span id="progress" class="progress-text"></span>
+      </div>
+      <table id="queriesTable" class="queries-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Query</th>
+            <th>Behavioral?</th>
+            <th>Answer</th>
+            <th>Run</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+  <footer>
+    <small>Status: <span id="status">Idle</span></small>
+  </footer>
+  <script src="testing.js"></script>
+</body>
+</html>

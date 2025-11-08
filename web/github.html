@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Project Repository</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .repo-box {background:#1d1f23;padding:1.2rem;border:1px solid #2c2f36;border-radius:8px;max-width:720px;margin:0 auto;}
+    .repo-box h2 {margin-top:0;}
+    .meta {font-size:.85em;opacity:.75;margin-bottom:.75rem;}
+    a.repo-link {display:inline-block;padding:.65rem 1rem;background:#3c6df0;color:#fff;text-decoration:none;border-radius:6px;font-weight:600;}
+    a.repo-link:hover {background:#335bcc;}
+    pre {background:#2c2f36;padding:.9rem;border-radius:6px;overflow:auto;font-size:.8em;}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Repository: Digital Twin RAG System</h1>
+    <nav class="tabs">
+      <a class="tab-btn" href="/web/index.html">← Back</a>
+      <a class="tab-btn" href="/about">About</a>
+    </nav>
+  </header>
+  <main>
+    <section class="panel">
+      <div class="repo-box">
+        <h2>Source Code</h2>
+        <p class="meta">Full implementation, issue tracking, and ongoing enhancements live here:</p>
+        <p><a class="repo-link" href="https://github.com/Tibberle2911/RAG-system" target="_blank" rel="noopener">View GitHub Repository →</a></p>
+        <h3>Highlights</h3>
+        <ul>
+          <li>Retrieval-Augmented Generation pipeline (Upstash Vector + Groq LLM).</li>
+          <li>Explicit, controlled import of profile data; no silent mutation.</li>
+          <li>Behavioral story handling without exposing raw STAR labels.</li>
+          <li>Answer post-processing: bullet normalization, PII masking, length constraints.</li>
+          <li>Extensible FastAPI interface with semantic search and bulk ask.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <small>Digital Twin RAG System • GitHub Integration Page</small>
+  </footer>
+</body>
+</html>

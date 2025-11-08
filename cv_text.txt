@@ -1,0 +1,140 @@
+
+===== PAGE 1 =====
+Tylor Le 
+ 
+https://www.linkedin.com/in/tib-designer/ (LinkedIn) - https://tibsigner.com/ (Portfolio) 
+ 
+MELBOURNE, AUS | +61 432 461 386 | TYLLORR.LE@GMAIL.COM 
+Technical Skills & Competencies 
+● Effectively developing user interfaces with accessibility, interactivity, and functionality through the 
+implementation of Frontend technologies: HTML, CSS, JavaScript, TypeScript, and Bootstrap 
+● Undertake scalable applications through the utilization of JavaScript Frameworks / Libraries: 
+ReactJS, Vue.js, and Vite 
+● Capabilities in using Backend technologies for creating Database, Data handling, Data modeling, 
+and utilizing external API resources: PHP, RESTful APIs, and MariaDB 
+● Conduct data analysis and data visualization projects from established datasets through a 
+combination of software and relevant technologies: R, Python, RStudio, D3.js, and KNIME 
+● Able to use OOP principles for complex software algorithms include writing unit tests through 
+various languages and frameworks: JavaScript, C#, Python, .NET, and NUnit 
+ 
+Education 
+Bachelor of Information and Communication Technology February 2024 – December 2025 
+Swinburne University of Technology 
+Melbourne, Australia 
+Major: Software Technology 
+Grade Point Average (GPA): 3/4 
+Employability Award: Career Development stream 
+ 
+Professional Experience 
+WhereToSpot - Frontend Developer Intern January 2025 – March 2025 
+Remote 
+Project completed: WhereToSpot React website 
+Technologies Used: ReactJS, TypeScript 
+• Built a scalable and maintainable system component in React.js, enabling dynamic UI 
+component customization based on context, improving development efficiency by 40% 
+• Configured an automated deployment pipeline using GitHub and Cloudflare, enabling 
+seamless deployment and reducing update time by over 15% 
+• Implemented pyramid-style navigation with React Router, delivering personalized experiences 
+by dynamically rendering content by category, leading to a 30% increase in user engagement  
+• Implemented Media Queries to tsx files for responsiveness, optimizing user experience across 
+user devices using breakpoints: 1440px, 1024px, 640px, and 360px 
+ 
+TechVSI - Full Time UI/UX Designer February 2022 – April 2022 
+Ho Chi Minh, Vietnam 
+• Documented materials such as concepts, wireframes, prototypes, user flows, style guides, etc. 
+for Handoff; increasing productivity by 50% for the implementation in coding
+
+===== PAGE 2 =====
+• Converted all elements, components and rules for design system / Brand guidelines to make 
+Auto layouts for multi-platform responsive Web design, increasing 40% productivity for 
+iterations and making perfect-pixel designs 
+• Led task organization based on cross-functional team input and project timelines, streamlining 
+workflows and enabling sprint completion rates to exceed targets at least 15% across all 
+assigned projects 
+Project completed: Techcombank 
+Technologies Used: ReactJS, NextJS, Figma 
+• Analyzed existing codebase and collaborated with the engineering team to translate styled 
+components from ReactJS to Figma, establishing a design system and reducing design 
+iteration steps by over 50, significantly improving the design-development workflow 
+• Researched about form pages from the old Techcombank website plus consulted with Developer 
+team for requirements in established codebase and then made decisions for the new design, 
+minimizing 24 user-flows into 4 layouts, improving UX and workflow 
+ 
+Other Experiences 
+ALH Group - Casual Gaming Attendant June 2022 – Present 
+Melbourne, Australia 
+● Maintained professional attitudes while providing offers based on context when customers really 
+need, led to an increase of 20% in sales and service registrations such as Monty's Rewards, 
+and/or pub+ at ALH Hotels 
+● Resolved technical issues in registration procedure of membership plus explained to customers 
+and provided further details, increased by 35% in customer loyalty 
+ 
+TPT Group - Startup UI/UX Designer & Developer March 2020 – September 2021 
+Melbourne, Australia 
+Project completed: Getfromyt 
+Technologies Used: ReactJS, TypeScript, Figma 
+● Analyzed 1000+ responses from the conducted user survey, opening conversations with 
+engineers to identify for the next feature and its requirements 
+● Maintained and updated React styled components in tsx files, leading to scalable / artistic 
+assets and high performance in coding 
+● Redesigned a deployed tool after identifying key weaknesses through competitive analysis and 
+codebase review, resolving performance issues and potential bugs, resulting in a 900% increase 
+in website traffic 
+● Conducted Usability Testing through the implement of Hotjar plus reviewed the established 
+codebase and network architecture, making data-driven decisions to redesign key user-flows, 
+increasing experience and decreasing server cost by 20% 
+ 
+Relevant Projects 
+Swinburne Online Shop - Full Stack Developer 
+Technologies Used: Bootstrap, Vue.js, Vite, PHP, MariaDB 
+● Called and manipulated data from an external REST API by utilizing GET HTTP method and 
+Vue.js functions, developing a product list with filtering and scanning features 
+● Utilized fetch() function to make HTTP requests to PHP files as API endpoints, processing 
+back-end logics to manipulate data from MariaDB for user interactions in social features 
+● Implemented Vue.js to develop reusable JavaScript components, establishing a scalable 
+application with e-commerce purpose
+
+===== PAGE 3 =====
+● Created a login system with encryption and the use of localStorage for checking user login 
+status, developing customized user views based on login status and credentials  
+ 
+AI wireframe generator chatbot - Software Developer 
+Technologies Used: Python, JavaScript, OpenAI, NUnit, .NET 
+● Built a web-based application integrating Google Gemini APIs, enabling users to call their own 
+APIs with custom prompts and preview AI-generated wireframes, resulting in a 40% improvement 
+in the prototyping process 
+● Designed and executed 15+ NUnit test cases to validate output quality against standardized 
+criteria, achieving 100% output accuracy in code format and 80% code coverage  
+ 
+SwinAdventure - Software Developer 
+Technologies Used: C#, NUnit, .NET 
+● Developed a survival game with interactive object items, enabling characters to move, look, and 
+manage inventory, improving gameplay experience and realism by 40% 
+● Utilized NUnit Framework to create and run 25+ unit tests, increasing code coverage to over 
+70% and significantly reducing bugs during gameplay logic implementation  
+ 
+Road Safety - Data Analyst 
+Technologies Used: KNIME, D3.js, Figma 
+● Analyzed 5017 data records through a strategic process from cleaning to transforming, 
+establishing an initial version of prototype to present the outcome with assumptions and gathering 
+feedback for iterations 
+● Implemented D3 and associated methods for data visualization, creating interactions, and 
+responsive charts, finalizing a data dashboard with custom view features and accessibility for all 
+user devices through web browsers 
+ 
+Bank marketing - Data analyst 
+Technologies Used: R, RStudio 
+• Analyzed over 4500 records and 17 input variables related to customer demographics, contact 
+information, campaign details, and earlier interactions, leading to recognition of imbalance in 
+dataset distributed factors and the use of createDataPartition function for splitting distribution of 
+classes equally in sampling data 
+• Found nnet and NeuralNetTools package, minimizing size of Artificial Neural Network model 
+and its visualization while maintaining 89.2% accuracy 
+ 
+Professional Development 
+• Earned Udacity certified user experience design accreditation 
+• Completed Efficient Learning online certification through ZTM, enhancing self-learning ability 
+• Conducted several projects for practical prompt engineering concepts gained from Generative 
+AI for Software Developers Specialization taught by IBM 
+• Gained technical knowledge through a strategic self-learning process, which utilizes resources 
+in Udemy and Coursera

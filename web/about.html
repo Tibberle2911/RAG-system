@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About the Digital Twin RAG System</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .arch-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); margin-top:1rem; }
+    .arch-card { background:#1d1f23; padding:1rem 1.1rem; border:1px solid #2c2f36; border-radius:8px; }
+    .arch-card h3 { margin-top:0; font-size:1rem; letter-spacing:.5px; }
+    code.inline { background:#2c2f36; padding:2px 5px; border-radius:4px; font-size:.85em; }
+    .flow { border-left:4px solid #3c6df0; padding-left:.75rem; margin:1.25rem 0; }
+    .flow-step { margin:.4rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About This Digital Twin</h1>
+    <p>A concise overview of the Retrieval-Augmented Generation (RAG) architecture powering the profile assistant.</p>
+    <nav class="tabs">
+      <a class="tab-btn" href="/web/index.html">← Back</a>
+    </nav>
+  </header>
+  <main>
+    <section class="panel">
+      <h2>Architecture Overview</h2>
+      <p>This system combines <strong>vector similarity retrieval</strong> with a lightweight <strong>LLM generation layer</strong> to produce grounded answers about a professional profile without exposing raw PII. All embedding and retrieval is performed using Upstash Vector; answer generation uses a Groq-hosted model. The profile JSON remains the single source of truth—no mutation or auto-writing occurs.</p>
+      <div class="arch-grid">
+        <div class="arch-card">
+          <h3>Data Source</h3>
+          <p><code class="inline">data/digitaltwin.json</code> stores structured profile info (experience, skills, education, projects, goals). Behavioral stories are exported separately to <code class="inline">data/star_profile.json</code>.</p>
+        </div>
+        <div class="arch-card">
+          <h3>Chunk Builder</h3>
+          <p><code class="inline">digitaltwin_rag.build_content_chunks()</code> derives semantic chunks (e.g. Experience, Skills, Methodology). STAR-titled chunks are generated but filtered at import time to avoid explicit 'STAR' labels while keeping methodology context.</p>
+        </div>
+        <div class="arch-card">
+          <h3>Importer</h3>
+          <p><code class="inline">data/embed_digitaltwin.py</code> performs controlled import. It excludes any title containing 'STAR', adds neutral behavioral story chunks from <code class="inline">star_profile.json</code>, and upserts vectors via <code class="inline">Index.upsert()</code>.</p>
+        </div>
+        <div class="arch-card">
+          <h3>Vector Store</h3>
+          <p>Upstash Vector provides built-in embeddings + similarity search. Queries call <code class="inline">index.query()</code>; results are filtered for category/tag and contact info removal.</p>
+        </div>
+        <div class="arch-card">
+          <h3>RAG Logic</h3>
+          <p><code class="inline">digitaltwin_rag.answer_question()</code> retrieves top chunks, merges behavioral context when triggers detected, sanitizes text, and builds a Groq prompt.</p>
+        </div>
+        <div class="arch-card">
+          <h3>Generation Layer</h3>
+          <p>Groq model (<code class="inline">llama-3.1-8b-instant</code>) produces first‑person responses from strictly provided context. Post-processing normalizes bullets, limits length, and enforces PII masking heuristics.</p>
+        </div>
+        <div class="arch-card">
+          <h3>PII Safety</h3>
+          <p>Email/phone patterns masked in retrieval context; explicit requests for contact details are intercepted with a safe declination response.</p>
+        </div>
+        <div class="arch-card">
+          <h3>Behavioral Methodology</h3>
+          <p>Stories follow situation → task → action → result formatting. Neutral titles ("Behavioral Story - Company - Role") enable retrieval without surfacing the word 'STAR'.</p>
+        </div>
+      </div>
+      <h2>Request Flow</h2>
+      <div class="flow">
+        <div class="flow-step"><strong>1.</strong> Client sends <code class="inline">/api/ask</code> question.</div>
+        <div class="flow-step"><strong>2.</strong> API checks PII intent; retrieves similar vectors (<code class="inline">semantic_search()</code>).</div>
+        <div class="flow-step"><strong>3.</strong> Behavioral detection adds methodology/story vectors when relevant.</div>
+        <div class="flow-step"><strong>4.</strong> Context sanitized, summarized if long.</div>
+        <div class="flow-step"><strong>5.</strong> Prompt sent to Groq; response post‑processed (bullets, limits, masking).</div>
+        <div class="flow-step"><strong>6.</strong> Returned to client with grounded, concise answer.</div>
+      </div>
+      <h2>Design Principles</h2>
+      <ul>
+        <li>No silent mutation of profile JSON—imports are explicit.</li>
+        <li>Behavioral clarity without exposing raw STAR labels.</li>
+        <li>Strict context grounding; avoid hallucinating unsupported claims.</li>
+        <li>Simplicity: single importer script; retrieval-first approach before generation.</li>
+        <li>Privacy filter for obvious PII patterns and direct contact queries.</li>
+      </ul>
+      <h2>Extensibility Ideas</h2>
+      <ul>
+        <li>Add answer quality scoring (coverage, specificity).</li>
+        <li>Integrate versioned profile snapshots for temporal comparisons.</li>
+        <li>Expose chunk browser endpoint for auditing the vector index.</li>
+        <li>Optional multi-model ensemble (fast draft + refinement).</li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <small>Digital Twin RAG System • Generated About Page</small>
+  </footer>
+</body>
+</html>

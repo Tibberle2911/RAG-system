@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Profile Data Overview</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap:1rem; }
+    .card { background:#1d1f23; border:1px solid #2c2f36; border-radius:8px; padding:1rem; }
+    .card h3 { margin:.2rem 0 0.6rem; font-size:1rem; }
+    .kv { font-size:.9em; opacity:.9; }
+    .pill { display:inline-block; padding:.2rem .5rem; background:#2c2f36; border-radius:999px; margin:.15rem; font-size:.85em; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:.85em; }
+    .section { margin:1.25rem 0; }
+    .muted { opacity:.75; font-size:.9em; }
+    .list { margin:.3rem 0 0; padding-left:1rem; }
+    .list li { margin:.2rem 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Structured Profile Data</h1>
+    <p>Live view of the professional profile organization used for retrieval and generation.</p>
+    <nav class="tabs">
+      <a class="tab-btn" href="/web/index.html">← Back</a>
+    </nav>
+  </header>
+  <main>
+    <section class="panel">
+      <div id="content">
+        <p class="muted">Loading profile data…</p>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <small>Digital Twin • Profile Data Overview</small>
+  </footer>
+  <script>
+    async function loadProfile() {
+      const el = document.getElementById('content');
+      try {
+        const res = await fetch('/api/profile-data');
+        if (!res.ok) throw new Error('Failed to fetch profile data');
+        const data = await res.json();
+        el.innerHTML = render(data);
+      } catch (e) {
+        el.innerHTML = `<p class="muted">Error: ${e.message}</p>`;
+      }
+    }
+
+    function render(d) {
+      return `
+        <div class="grid">
+          <div class="card">
+            <h3>Personal</h3>
+            <div class="kv"><strong>Name:</strong> ${escapeHtml(d.personal?.name || '')}</div>
+            <div class="kv"><strong>Title:</strong> ${escapeHtml(d.personal?.title || '')}</div>
+            <div class="kv"><strong>Location:</strong> ${escapeHtml(d.personal?.location || '')}</div>
+            <div class="kv"><strong>Summary:</strong> ${escapeHtml(d.personal?.summary || '')}</div>
+            <div class="kv"><strong>Contact:</strong> <span class="mono">${escapeHtml(JSON.stringify(d.contact || {}))}</span></div>
+          </div>
+          <div class="card">
+            <h3>Skills</h3>
+            ${renderSkills(d.skills)}
+          </div>
+          <div class="card">
+            <h3>Education</h3>
+            <div class="kv mono">${escapeHtml(JSON.stringify(d.education || {}, null, 2))}</div>
+          </div>
+          <div class="card">
+            <h3>Projects</h3>
+            <ul class="list">${(d.projects||[]).map(p => `<li><strong>${escapeHtml(p.name||'')}</strong> — ${escapeHtml(p.description||'')}</li>`).join('')}</ul>
+          </div>
+          <div class="card">
+            <h3>Experience Stories</h3>
+            <ul class="list">${(d.experience_stories||[]).map(s => `<li><strong>${escapeHtml(s.company||'')} • ${escapeHtml(s.role||'')}</strong><br/>${escapeHtml(s.situation||'')} → ${escapeHtml(s.task||'')} → ${escapeHtml(s.action||'')} → <em>${escapeHtml(s.result||'')}</em></li>`).join('')}</ul>
+          </div>
+          <div class="card">
+            <h3>Behavioral Methodology</h3>
+            <p class="muted">Neutral-titled stories (no 'STAR' in titles) used for behavioral retrieval.</p>
+            <ul class="list">${(d.methodology_stories||[]).map(s => `<li><strong>${escapeHtml(s.company||'')} • ${escapeHtml(s.role||'')}</strong><br/>${escapeHtml(s.situation||'')} → ${escapeHtml(s.task||'')} → ${escapeHtml(s.action||'')} → <em>${escapeHtml(s.result||'')}</em></li>`).join('')}</ul>
+          </div>
+          <div class="card">
+            <h3>Career Goals</h3>
+            <div class="kv mono">${escapeHtml(JSON.stringify(d.career_goals || {}, null, 2))}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSkills(sk) {
+      if (!sk || !sk.technical) return '<div class="kv">No skills found.</div>';
+      const t = sk.technical;
+      const langs = (t.programming_languages||[]).map(l => `<span class="pill">${escapeHtml(l.language||'')}</span>`).join('');
+      const frontend = (t.frontend||[]).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join('');
+      const devops = (t.devops_tooling||[]).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join('');
+      const ai = (t.ai_tools||[]).map(x => `<span class="pill">${escapeHtml(x)}</span>`).join('');
+      return `
+        <div class="section"><strong>Languages:</strong><br/>${langs}</div>
+        <div class="section"><strong>Frontend:</strong><br/>${frontend}</div>
+        <div class="section"><strong>DevOps:</strong><br/>${devops}</div>
+        <div class="section"><strong>AI Tools:</strong><br/>${ai}</div>
+      `;
+    }
+
+    function escapeHtml(s){
+      return String(s||'').replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','\'':'&#39;','"':'&quot;'}[c]));
+    }
+
+    loadProfile();
+  </script>
+</body>
+</html>

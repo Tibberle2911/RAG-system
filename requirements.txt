@@ -1,0 +1,6 @@
+pytest
+fastapi
+uvicorn
+python-dotenv
+upstash-vector
+groq

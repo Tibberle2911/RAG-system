@@ -1,0 +1,46 @@
+{
+  "star_methodology": "Structured situation-task-action-result stories without STAR-titled chunks.",
+  "count": 4,
+  "stories": [
+    {
+      "company": "WhereToSpot",
+      "role": "Frontend Developer Intern",
+      "duration": "Jan 2025 – Mar 2025",
+      "context": "Early stage product – remote collaboration",
+      "situation": "Need for scalable, configurable UI components slowing feature delivery",
+      "task": "Create a reuse strategy and component system in React/TypeScript",
+      "action": "Built context‑aware, prop‑driven components + responsive layout breakpoints (1440/1024/640/360) and automated CI/CD via GitHub + Cloudflare",
+      "result": "Increased development efficiency ~40% and reduced deployment/update time >15% while boosting engagement ~30% via pyramid navigation personalization"
+    },
+    {
+      "company": "TechVSI (Techcombank Project)",
+      "role": "UI/UX Designer (Full Time)",
+      "duration": "Feb 2022 – Apr 2022",
+      "context": "Cross‑functional design & engineering collaboration",
+      "situation": "Inconsistent design assets causing iteration delays",
+      "task": "Unify components into a scalable multi‑platform design system",
+      "action": "Converted styled React components into Figma design tokens & auto‑layout patterns; rationalized 24 form user flows into 4 layout archetypes",
+      "result": "Cut design iteration steps >50% and improved productivity ~40%, exceeding sprint completion targets by ≥15%"
+    },
+    {
+      "company": "ALH Group",
+      "role": "Casual Gaming Attendant",
+      "duration": "Jun 2022 – Present",
+      "context": "Customer‑facing hospitality environment",
+      "situation": "Need to increase memberships and service registrations",
+      "task": "Provide contextual customer engagement & resolve onboarding issues",
+      "action": "Proactively assisted with registration, troubleshooting technical issues, clarifying benefits",
+      "result": "Raised sales/service registrations ~20% and loyalty retention ~35%"
+    },
+    {
+      "company": "TPT Group (Getfromyt)",
+      "role": "Startup UI/UX Designer & Developer",
+      "duration": "Mar 2020 – Sep 2021",
+      "context": "Early startup iterative product cycle",
+      "situation": "Tool underperforming with design and performance gaps",
+      "task": "Redesign UI & optimize performance informed by user data",
+      "action": "Analyzed 1000+ survey responses, ran Hotjar usability reviews, refactored styled components, redesigned key flows",
+      "result": "Achieved ~900% traffic increase and ~20% server cost reduction via efficiency improvements"
+    }
+  ]
+}

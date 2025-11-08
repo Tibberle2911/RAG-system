@@ -1,0 +1,423 @@
+{
+  "personal": {
+    "name": "Tylor Le",
+    "title": "Frontend Developer | UI/UX & Full‑Stack & GenAI",
+    "location": "Melbourne, Australia",
+    "summary": "Frontend & UI/UX focused developer currently completing a Bachelor of ICT (Software Technology). Experience delivering responsive, component‑driven React/Vue interfaces, design systems, data visualisation dashboards, and small full‑stack features (PHP + MariaDB + REST). Comfortable with Figma to code handoff, unit testing (NUnit/.NET, C#) and rapid prototyping with modern JS tooling (Vite, TypeScript).",
+    "elevator_pitch": "I design and build accessible, performant web experiences—translating user research and design systems into clean, testable front‑end code while still diving into data, backend APIs and automation when needed.",
+    "contact": {
+      "email": "tyllorr.le@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/tib-designer/",
+      "github": "https://github.com/Tibberle2911",
+      "portfolio": "https://tibsigner.com/"
+    }
+  },
+  "salary_location": {
+    "current_salary": "Open (Full/Part-time + casual roles)",
+    "salary_expectations": "Negotiable based on scope & growth opportunity",
+    "location_preferences": [
+      "Melbourne",
+      "Hybrid",
+      "Remote"
+    ],
+    "relocation_willing": false,
+    "remote_experience": "Completed remote internship + async collaboration",
+    "travel_availability": "Occasional local travel ok",
+    "work_authorization": "Full-time work rights in Australia for 5+ years"
+  },
+  "experience": [
+    {
+      "company": "WhereToSpot",
+      "title": "Frontend Developer Intern",
+      "duration": "Jan 2025 – Mar 2025",
+      "company_context": "Early stage product – remote collaboration",
+      "team_structure": "Small distributed engineering & product group",
+      "achievements_star": [
+        {
+          "situation": "Need for scalable, configurable UI components slowing feature delivery",
+          "task": "Create a reuse strategy and component system in React/TypeScript",
+          "action": "Built context‑aware, prop‑driven components + responsive layout breakpoints (1440/1024/640/360) and automated CI/CD via GitHub + Cloudflare",
+          "result": "Increased development efficiency ~40% and reduced deployment/update time >15% while boosting engagement ~30% via pyramid navigation personalization"
+        }
+      ],
+      "technical_skills_used": [
+        "React",
+        "TypeScript",
+        "React Router",
+        "Cloudflare",
+        "GitHub Actions",
+        "Responsive Design"
+      ],
+      "leadership_examples": [
+        "Introduced component customization pattern",
+        "Authored deployment pipeline docs"
+      ],
+      "team_size_managed": 6
+    },
+    {
+      "company": "TechVSI (Techcombank Project)",
+      "title": "UI/UX Designer (Full Time)",
+      "duration": "Feb 2022 – Apr 2022",
+      "company_context": "Cross‑functional design & engineering collaboration",
+      "team_structure": "Design + Frontend engineering squad",
+      "achievements_star": [
+        {
+          "situation": "Inconsistent design assets causing iteration delays",
+          "task": "Unify components into a scalable multi‑platform design system",
+          "action": "Converted styled React components into Figma design tokens & auto‑layout patterns; rationalized 24 form user flows into 4 layout archetypes",
+          "result": "Cut design iteration steps >50% and improved productivity ~40%, exceeding sprint completion targets by ≥15%"
+        }
+      ],
+      "technical_skills_used": [
+        "Figma",
+        "Design Systems",
+        "React",
+        "Next.js"
+      ],
+      "leadership_examples": [
+        "Led design system definition",
+        "Coordinated handoff workflows"
+      ],
+      "team_size_managed": 11
+    },
+    {
+      "company": "ALH Group",
+      "title": "Casual Gaming Attendant",
+      "duration": "Jun 2022 – Present",
+      "company_context": "Customer‑facing hospitality environment",
+      "team_structure": "On‑site venue team",
+      "achievements_star": [
+        {
+          "situation": "Need to increase memberships and service registrations",
+          "task": "Provide contextual customer engagement & resolve onboarding issues",
+          "action": "Proactively assisted with registration, troubleshooting technical issues, clarifying benefits",
+          "result": "Raised sales/service registrations ~20% and loyalty retention ~35%"
+        }
+      ],
+      "technical_skills_used": [
+        "Customer Service",
+        "Issue Resolution"
+      ],
+      "leadership_examples": [],
+      "team_size_managed": 8
+    },
+    {
+      "company": "TPT Group (Getfromyt)",
+      "title": "Startup UI/UX Designer & Developer",
+      "duration": "Mar 2020 – Sep 2021",
+      "company_context": "Early startup iterative product cycle",
+      "team_structure": "Small founder + engineering collaboration",
+      "achievements_star": [
+        {
+          "situation": "Tool underperforming with design and performance gaps",
+          "task": "Redesign UI & optimize performance informed by user data",
+          "action": "Analyzed 1000+ survey responses, ran Hotjar usability reviews, refactored styled components, redesigned key flows",
+          "result": "Achieved ~900% traffic increase and ~20% server cost reduction via efficiency improvements"
+        }
+      ],
+      "technical_skills_used": [
+        "React",
+        "TypeScript",
+        "Figma",
+        "Hotjar",
+        "UX Research"
+      ],
+      "leadership_examples": [
+        "Drove data‑informed redesign process"
+      ],
+      "team_size_managed": 4
+    }
+  ],
+  "skills": {
+    "technical": {
+      "programming_languages": [
+        {
+          "language": "JavaScript",
+          "proficiency": "Advanced",
+          "frameworks": [
+            "React",
+            "Vue",
+            "Vite",
+            "Node.js"
+          ],
+          "focus": "Component architecture, SPA performance"
+        },
+        {
+          "language": "TypeScript",
+          "proficiency": "Advanced",
+          "frameworks": [
+            "React",
+            "Vite"
+          ],
+          "focus": "Type‑safe UI components"
+        },
+        {
+          "language": "Python",
+          "proficiency": "Intermediate",
+          "frameworks": [
+            "Data analysis",
+            "Prototyping"
+          ]
+        },
+        {
+          "language": "C#",
+          "proficiency": "Intermediate",
+          "frameworks": [
+            ".NET",
+            "NUnit"
+          ]
+        },
+        {
+          "language": "R",
+          "proficiency": "Intermediate",
+          "frameworks": [
+            "RStudio",
+            "tidyverse"
+          ]
+        },
+        {
+          "language": "PHP",
+          "proficiency": "Intermediate",
+          "frameworks": [
+            "REST endpoints"
+          ]
+        }
+      ],
+      "frontend": [
+        "HTML",
+        "CSS",
+        "Responsive Design",
+        "Accessibility",
+        "Bootstrap",
+        "Figma to Code",
+        "Design Systems"
+      ],
+      "databases": [
+        "MariaDB",
+        "Basic localStorage usage"
+      ],
+      "data_visualisation": [
+        "D3.js",
+        "KNIME"
+      ],
+      "testing": [
+        "NUnit",
+        "Unit Testing",
+        "Test Strategy"
+      ],
+      "ai_tools": [
+        "OpenAI / Gemini API integration",
+        "Prompt Engineering"
+      ],
+      "devops_tooling": [
+        "GitHub Actions (basic)",
+        "Cloudflare Deployments"
+      ],
+      "analytics_research": [
+        "User Survey Analysis",
+        "Hotjar",
+        "UX Heuristics"
+      ]
+    },
+    "soft_skills": [
+      "Cross‑functional Collaboration",
+      "User-Centered Design",
+      "Problem Solving",
+      "Data‑informed Decision Making",
+      "Adaptability",
+      "Time Management"
+    ],
+    "certifications": [
+      "Udacity User Experience Design accreditation",
+      "ZTM Efficient Learning (online)",
+      "IBM Generative AI for Software Developers specialization"
+    ]
+  },
+  "education": {
+    "university": "Swinburne University of Technology",
+    "degree": "Bachelor of Information and Communication Technology (Software Technology)",
+    "duration": "Feb 2024 – Dec 2025 (In progress)",
+    "gpa": "3/4",
+    "awards": [
+      "Employability Award: Career Development stream"
+    ],
+    "relevant_coursework": [
+      "Software Technology",
+      "Object Oriented Programming",
+      "Data Analysis",
+      "Systems Design"
+    ],
+    "thesis_project": "(Planned) – Focus on applied software & UX integration"
+  },
+  "projects_portfolio": [
+    {
+      "name": "WhereToSpot React Platform",
+      "description": "Responsive component system + dynamic navigation for user engagement",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "React Router",
+        "Cloudflare"
+      ],
+      "impact": "~40% development efficiency gain; ~30% engagement increase",
+      "role": "Frontend Intern"
+    },
+    {
+      "name": "Techcombank Design System",
+      "description": "Consolidated 24 form flows into 4 archetypes & established auto‑layout system",
+      "technologies": [
+        "Figma",
+        "Design Tokens",
+        "React",
+        "Next.js"
+      ],
+      "impact": ">50% iteration reduction; productivity +40%",
+      "role": "UI/UX Designer"
+    },
+    {
+      "name": "Getfromyt Redesign",
+      "description": "Data‑driven performance & UX overhaul of media tool",
+      "technologies": [
+        "React",
+        "TypeScript",
+        "Hotjar",
+        "Figma"
+      ],
+      "impact": "~900% traffic growth; server cost –20%",
+      "role": "UI/UX Designer & Developer"
+    },
+    {
+      "name": "Swinburne Online Shop",
+      "description": "Full stack academic project with REST consumption & PHP API endpoints",
+      "technologies": [
+        "Vue",
+        "Vite",
+        "Bootstrap",
+        "PHP",
+        "MariaDB"
+      ],
+      "impact": "Reusable component patterns + filtered product list & social features",
+      "role": "Full Stack Developer"
+    },
+    {
+      "name": "AI Wireframe Generator Chatbot",
+      "description": "Web app integrating Gemini/OpenAI style APIs to produce wireframes from prompts",
+      "technologies": [
+        "Python",
+        "JavaScript",
+        "OpenAI/Gemini",
+        ".NET",
+        "NUnit"
+      ],
+      "impact": "~40% prototyping speed improvement; 15+ tests => 100% format accuracy",
+      "role": "Software Developer"
+    },
+    {
+      "name": "SwinAdventure Game",
+      "description": "C# survival game with interactive inventory & movement logic + tests",
+      "technologies": [
+        "C#",
+        ".NET",
+        "NUnit"
+      ],
+      "impact": ">70% code coverage; improved gameplay realism",
+      "role": "Developer"
+    },
+    {
+      "name": "Road Safety Dashboard",
+      "description": "Data pipeline & interactive visualisation dashboard",
+      "technologies": [
+        "KNIME",
+        "D3.js",
+        "Figma"
+      ],
+      "impact": "Processed 5,017 records into accessible responsive charts",
+      "role": "Data Analyst"
+    },
+    {
+      "name": "Bank Marketing Analysis",
+      "description": "Exploratory + ANN modelling of campaign dataset",
+      "technologies": [
+        "R",
+        "RStudio",
+        "NeuralNetTools"
+      ],
+      "impact": "Achieved 89.2% accuracy with reduced model size",
+      "role": "Data Analyst"
+    }
+  ],
+  "career_goals": {
+    "short_term": "Secure an early‑career Frontend / UI Engineer role leveraging design system & data insights",
+    "long_term": "Evolve into a Lead Frontend / Product Engineer driving cohesive design‑to‑code workflows",
+    "learning_focus": [
+      "Advanced TypeScript patterns",
+      "Design token automation",
+      "Frontend performance",
+      "AI assisted prototyping"
+    ],
+    "industries_interested": [
+      "SaaS",
+      "Fintech UX",
+      "Developer Tools",
+      "EdTech",
+      "Consulting",
+      "Outsourcing"
+    ]
+  },
+  "interview_prep": {
+    "common_questions": {
+      "behavioral": [
+        "Describe a time you used user data to drive a redesign.",
+        "Tell me about collaborating with engineers to formalize a design system.",
+        "Explain how you handle balancing speed vs. quality in UI delivery."
+      ],
+      "technical": [
+        "How do you structure a scalable component library in React?",
+        "Explain approaches to responsive design across multiple breakpoints.",
+        "Walk through optimizing perceived performance in a SPA."
+      ],
+      "situational": [
+        "You inherit an inconsistent Figma + codebase set—what's your audit plan?",
+        "A stakeholder wants a feature that conflicts with UX principles—how proceed?",
+        "How would you introduce testing into a codebase with none?"
+      ],
+      "company_research": {
+        "research_areas": [
+          "Design system maturity",
+          "Frontend architecture",
+          "Performance culture",
+          "User research practices"
+        ],
+        "preparation_questions": [
+          "How do design and engineering collaborate?",
+          "What metrics define frontend success?",
+          "How are accessibility standards enforced?"
+        ]
+      }
+    },
+    "weakness_mitigation": [
+      {
+        "weakness": "Limited large-scale production backend exposure",
+        "mitigation": "Integrating cloud deployment pipelines and deployment automation in projects"
+      }
+    ]
+  },
+  "professional_development": {
+    "recent_learning": [
+      "Design systems tokenization",
+      "Prompt engineering practical projects",
+      "Data visualization pipelines"
+    ],
+    "conferences_attended": [],
+    "publications": [],
+    "open_source": [
+      "Iterative internal project contributions",
+      "Sharing component patterns in study groups"
+    ],
+    "courses_certifications": [
+      "Udacity UX Design",
+      "ZTM Efficient Learning",
+      "IBM Generative AI for Software Developers (specialization)"
+    ]
+  }
+}

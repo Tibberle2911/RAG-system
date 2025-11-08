@@ -1,0 +1,25 @@
+.env
+.env.local
+.env.*.local
+*.env.backup
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+# Node (if added later)
+node_modules/
+# Logs
+*.log
+logs/
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+# Coverage / build
+dist/
+build/
+coverage/
+# IDE
+.idea/
