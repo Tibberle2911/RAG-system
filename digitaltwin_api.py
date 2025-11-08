@@ -48,8 +48,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Serve the UI directly from root so "/" returns index.html (html=True)
-app.mount("/", StaticFiles(directory="web", html=True), name="root_static")
+@app.get("/")
+async def root_redirect():
+    return RedirectResponse(url="/index.html")
 
 @app.get("/about")
 async def about_redirect():
@@ -207,5 +208,8 @@ async def api_profile_data():
         'methodology_stories': methodology_stories,
     }
     return resp
+
+# Mount StaticFiles at root after all dynamic routes so it doesn't mask them
+app.mount("/", StaticFiles(directory="web", html=True), name="root_static")
 
 # Run with: uvicorn digitaltwin_api:app --reload
