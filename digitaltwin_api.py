@@ -147,7 +147,17 @@ async def bulk_ask(req: BulkAskRequest):
 
 @app.get("/api/health")
 async def health():
-    return {"status": "ok", "index_ready": INDEX is not None, "groq_ready": GROQ is not None}
+    missing_env = []
+    for key in ["UPSTASH_VECTOR_REST_URL", "UPSTASH_VECTOR_REST_TOKEN", "GROQ_API_KEY"]:
+        if not os.getenv(key):
+            missing_env.append(key)
+    return {
+        "status": "ok",
+        "index_ready": INDEX is not None,
+        "groq_ready": GROQ is not None,
+        "missing_env": missing_env,
+        "cwd_files": [f for f in os.listdir(os.getcwd()) if f.endswith('.py')][:10]
+    }
 
 @app.get("/api/profile-data")
 async def api_profile_data():

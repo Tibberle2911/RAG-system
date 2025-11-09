@@ -346,23 +346,21 @@ def embed_profile(index: Index, profile: Dict, force: bool = False) -> int:
 def setup_vector_database(force_rebuild: bool = False) -> Optional[Index]:
     """Setup vector DB connection only (no embedding).
 
-    Use data/embed_digitaltwin.py to manage imports/embeds.
+    Returns None if required env vars missing or connection fails.
     """
-    print("🔄 Setting up Upstash Vector database...")
     try:
         if not validate_upstash_env():
             return None
         index = Index.from_env()
-        print("✅ Connected to Upstash Vector successfully!")
+        # Lightweight info fetch for diagnostics; swallow errors.
         try:
             info = index.info()
             current_count = getattr(info, 'vector_count', 0)
-            print(f"📊 Current vectors in database: {current_count}")
+            print(f"Upstash vector count: {current_count}")
         except Exception:
             pass
         return index
-    except Exception as e:
-        print(f"❌ Error setting up database: {e}")
+    except Exception:
         return None
 
 def query_vectors(index, query_text, top_k=3):
