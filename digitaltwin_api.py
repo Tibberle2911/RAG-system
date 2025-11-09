@@ -159,6 +159,72 @@ async def health():
         "cwd_files": [f for f in os.listdir(os.getcwd()) if f.endswith('.py')][:10]
     }
 
+@app.get("/api/env-status")
+async def env_status():
+    """Report non-secret deployment readiness of required env vars and connection states.
+
+    Returns booleans for each required variable and whether the index/groq client objects exist.
+    Does not expose actual values.
+    """
+    keys = ["UPSTASH_VECTOR_REST_URL", "UPSTASH_VECTOR_REST_TOKEN", "GROQ_API_KEY"]
+    presence = {k: bool(os.getenv(k)) for k in keys}
+    return {
+        "env": presence,
+        "index_ready": INDEX is not None,
+        "groq_ready": GROQ is not None,
+        "deployment_mode": os.getenv("VERCEL", "local"),
+    }
+
+@app.get("/api/diag")
+async def diag():
+    """Minimal end-to-end diagnostics for Upstash Vector and Groq.
+
+    - If env vars missing, returns which are missing and does not attempt calls.
+    - Upstash: performs a tiny query for a benign token ('ping') with top_k=1
+      and reports whether the call returned without exception.
+    - Groq: sends a 1-2 token prompt and checks that a response object is returned.
+    - Never includes secrets or full model output.
+    """
+    required = ["UPSTASH_VECTOR_REST_URL", "UPSTASH_VECTOR_REST_TOKEN", "GROQ_API_KEY"]
+    missing = [k for k in required if not os.getenv(k)]
+    report: Dict[str, object] = {"missing_env": missing}
+    # Early return if any missing
+    if missing:
+        report.update({"upstash_ok": False, "groq_ok": False, "note": "Set env vars in Vercel settings."})
+        return report
+    # Upstash check
+    upstash_ok = False
+    try:
+        if INDEX is None:
+            idx = rag.setup_vector_database()
+        else:
+            idx = INDEX
+        if idx is not None:
+            _ = rag.query_vectors(idx, "ping", top_k=1)
+            upstash_ok = True
+    except Exception:
+        upstash_ok = False
+    report["upstash_ok"] = upstash_ok
+    # Groq check
+    groq_ok = False
+    try:
+        client = GROQ or rag.setup_groq_client()
+        if client:
+            # Minimal call; keep tokens small and avoid returning content
+            _ = client.chat.completions.create(
+                model=rag.DEFAULT_MODEL,
+                messages=[{"role": "user", "content": "ping"}],
+                temperature=0.1,
+                max_tokens=5,
+            )
+            groq_ok = True
+    except Exception:
+        groq_ok = False
+    report["groq_ok"] = groq_ok
+    # High-level readiness
+    report["ready"] = bool(upstash_ok and groq_ok)
+    return report
+
 @app.get("/api/profile-data")
 async def api_profile_data():
     """Return structured professional profile data with optional behavioral stories.
