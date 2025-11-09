@@ -71,8 +71,20 @@ async def profile_data_redirect():
 @app.on_event("startup")
 async def startup_event():
     global INDEX, GROQ
+    # Best-effort init; on serverless cold starts, this may be delayed.
     INDEX = rag.setup_vector_database(force_rebuild=False)
     GROQ = rag.setup_groq_client()
+
+def ensure_services():
+    """Lazy-initialize services for serverless environments.
+
+    Avoids failures if startup hook doesn't run or is cold-started.
+    """
+    global INDEX, GROQ
+    if INDEX is None:
+        INDEX = rag.setup_vector_database(force_rebuild=False)
+    if GROQ is None:
+        GROQ = rag.setup_groq_client()
 
 @app.get("/api/sample-queries", response_model=SampleQueriesResponse)
 async def sample_queries():
@@ -81,22 +93,14 @@ async def sample_queries():
     Tries multiple import paths to remain robust whether executed with or without
     tests package on sys.path.
     """
-    QUERY_ENTRIES = []
-    try:
-        from tests.query_entries import QUERY_ENTRIES as qe  # type: ignore
-        QUERY_ENTRIES = qe
-    except Exception:
-        try:
-            from query_entries import QUERY_ENTRIES as qe2  # type: ignore
-            QUERY_ENTRIES = qe2
-        except Exception:
-            pass
+    from query_entries import QUERY_ENTRIES  # single source
     return {"queries": [
         {"id": qid, "text": text, "behavioral": flagged} for qid, text, flagged in QUERY_ENTRIES
     ]}
 
 @app.get("/api/search", response_model=SearchResponse)
 async def search(q: str = Query(...), category: Optional[str] = None, tag: Optional[str] = None):
+    ensure_services()
     if INDEX is None:
         return {"results": []}
     results = rag.semantic_search(INDEX, q, top_k=8, category=category, tag=tag)
@@ -104,6 +108,7 @@ async def search(q: str = Query(...), category: Optional[str] = None, tag: Optio
 
 @app.post("/api/ask", response_model=AskResponse)
 async def ask(req: AskRequest):
+    ensure_services()
     question = req.question.strip()
     if not question:
         return {"answer": "Empty question."}
@@ -121,6 +126,7 @@ async def ask(req: AskRequest):
 
 @app.post("/api/bulk-ask", response_model=BulkAskResponse)
 async def bulk_ask(req: BulkAskRequest):
+    ensure_services()
     results: List[Dict] = []
     if GROQ is None or INDEX is None:
         return {"results": []}
@@ -147,6 +153,7 @@ async def bulk_ask(req: BulkAskRequest):
 
 @app.get("/api/health")
 async def health():
+    ensure_services()
     missing_env = []
     for key in ["UPSTASH_VECTOR_REST_URL", "UPSTASH_VECTOR_REST_TOKEN", "GROQ_API_KEY"]:
         if not os.getenv(key):
@@ -156,11 +163,13 @@ async def health():
         "index_ready": INDEX is not None,
         "groq_ready": GROQ is not None,
         "missing_env": missing_env,
-        "cwd_files": [f for f in os.listdir(os.getcwd()) if f.endswith('.py')][:10]
+        "cwd_files": [f for f in os.listdir(os.getcwd()) if f.endswith('.py')][:10],
+        "lazy_init": True
     }
 
 @app.get("/api/env-status")
 async def env_status():
+    ensure_services()
     """Report non-secret deployment readiness of required env vars and connection states.
 
     Returns booleans for each required variable and whether the index/groq client objects exist.
@@ -177,6 +186,7 @@ async def env_status():
 
 @app.get("/api/diag")
 async def diag():
+    ensure_services()
     """Minimal end-to-end diagnostics for Upstash Vector and Groq.
 
     - If env vars missing, returns which are missing and does not attempt calls.
@@ -195,10 +205,7 @@ async def diag():
     # Upstash check
     upstash_ok = False
     try:
-        if INDEX is None:
-            idx = rag.setup_vector_database()
-        else:
-            idx = INDEX
+        idx = INDEX
         if idx is not None:
             _ = rag.query_vectors(idx, "ping", top_k=1)
             upstash_ok = True
